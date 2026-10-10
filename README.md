@@ -11,6 +11,28 @@
 
 Welcome to your Remotion project!
 
+## Vidéo publicitaire de formation
+
+Le dossier `src/FormationPromo/` contient une publicité animée de 30 secondes pour une formation, en deux formats :
+
+| Composition              | Format         | Usage                          |
+| ------------------------ | -------------- | ------------------------------ |
+| `FormationPromo`         | 1920×1080 16:9 | YouTube, site web, LinkedIn    |
+| `FormationPromoVertical` | 1080×1920 9:16 | Reels, TikTok, Shorts, Stories |
+
+Déroulé : accroche → nom de la formation → 4 avantages → chiffres clés animés → appel à l'action.
+
+**Personnaliser** : tous les textes, chiffres, icônes et couleurs sont dans `src/FormationPromo/schema.ts` (`formationPromoDefaults`). Vous pouvez aussi les modifier en direct dans le Studio (`npm run dev`, panneau « Props »).
+
+**Rendre la vidéo** :
+
+```console
+npx remotion render FormationPromo out/formation-promo-16x9.mp4
+npx remotion render FormationPromoVertical out/formation-promo-9x16.mp4
+```
+
+La police Poppins est embarquée dans `public/fonts/` : le rendu fonctionne sans accès à Internet.
+
 ## Commands
 
 **Install Dependencies**

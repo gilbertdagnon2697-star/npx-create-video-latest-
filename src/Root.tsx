@@ -1,4 +1,9 @@
 import { Composition, Folder } from "remotion";
+import { DUREE_FORMATION_PROMO, FormationPromo } from "./FormationPromo";
+import {
+  formationPromoDefaults,
+  formationPromoSchema,
+} from "./FormationPromo/schema";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
@@ -8,6 +13,30 @@ import { Title } from "./HelloWorld/Title";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="Formation">
+        {/* Vidéo publicitaire 16:9 (YouTube, site web, LinkedIn) */}
+        <Composition
+          id="FormationPromo"
+          component={FormationPromo}
+          schema={formationPromoSchema}
+          durationInFrames={DUREE_FORMATION_PROMO}
+          fps={30}
+          width={1920}
+          height={1080}
+          defaultProps={formationPromoDefaults}
+        />
+        {/* Version verticale 9:16 (Reels, TikTok, Shorts, Stories) */}
+        <Composition
+          id="FormationPromoVertical"
+          component={FormationPromo}
+          schema={formationPromoSchema}
+          durationInFrames={DUREE_FORMATION_PROMO}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={formationPromoDefaults}
+        />
+      </Folder>
       <Folder name="Elements">
         <Composition
           id="Logo"
@@ -50,7 +79,6 @@ export const RemotionRoot: React.FC = () => {
           titleColor: "#000000",
         }}
       />
-
     </>
   );
 };

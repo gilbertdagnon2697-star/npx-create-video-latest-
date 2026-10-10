@@ -1,0 +1,2 @@
+Poppins — Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins).
+Distribuée sous licence SIL Open Font License 1.1 : https://openfontlicense.org
