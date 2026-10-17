@@ -2,12 +2,39 @@ import { Composition, Folder } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
+import { defaultSameProps, sameSchema } from "./Same/props";
+import { SameVideo } from "./Same/SameVideo";
+import { FPS, TOTAL_FRAMES } from "./Same/time";
 
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="Facebook-SAME-2026">
+        {/* Format principal : 9:16, 1080 x 1920, 30 i/s, 49,83 s. */}
+        <Composition
+          id="Same-Facebook-9x16"
+          component={SameVideo}
+          durationInFrames={TOTAL_FRAMES}
+          fps={FPS}
+          width={1080}
+          height={1920}
+          schema={sameSchema}
+          defaultProps={defaultSameProps}
+        />
+        {/* Variante fil d'actualité 4:5, 1080 x 1350 : composition source sans recadrage. */}
+        <Composition
+          id="Same-Facebook-4x5"
+          component={SameVideo}
+          durationInFrames={TOTAL_FRAMES}
+          fps={FPS}
+          width={1080}
+          height={1350}
+          schema={sameSchema}
+          defaultProps={defaultSameProps}
+        />
+      </Folder>
       <Folder name="Elements">
         <Composition
           id="Logo"
@@ -50,7 +77,6 @@ export const RemotionRoot: React.FC = () => {
           titleColor: "#000000",
         }}
       />
-
     </>
   );
 };
